@@ -52,6 +52,18 @@
       (.write byte-arr)
       (.close))))
 
+(defn split-page [contents start-page end-page]
+  (let [document (PDDocument/load contents)
+        new-document (PDDocument.)
+        bos (ByteArrayOutputStream.)]
+    (reduce #(.addPage %1 (.getPage document %2))
+            new-document
+            (range start-page (inc end-page)))
+    (.close document)
+    (.save new-document bos)
+    (.close new-document)
+    (.toByteArray bos)))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
