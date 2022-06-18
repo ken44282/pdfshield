@@ -56,13 +56,19 @@
   (let [document (PDDocument/load contents)
         new-document (PDDocument.)
         bos (ByteArrayOutputStream.)]
-    (reduce #(.addPage %1 (.getPage document %2))
-            new-document
+    (reduce #(.addPage new-document (.getPage document %2))
+            nil
             (range start-page (inc end-page)))
-    (.close document)
     (.save new-document bos)
     (.close new-document)
     (.toByteArray bos)))
+
+(defn test-split-page []
+  (let [fis (FileInputStream. "resources/test.pdf")
+        byte-arr (split-page fis 2 4)]
+    (doto (FileOutputStream. "resources/test4.pdf")
+      (.write byte-arr)
+      (.close))))
 
 (defn -main
   "I don't do a whole lot ... yet."

@@ -18,29 +18,16 @@
 clj꞉pdfshield.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (ClassCastException) at pdfshield.core/test-set-image (core.clj:49).
-; class java.io.FileInputStream cannot be cast to class clojure.lang.IFn (java.io.FileInputStream is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+(test-split-page)
+; Execution error (NullPointerException) at pdfshield.core/split-page$fn (core.clj:59).
+; null
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 5 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 3 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 5 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
+(test-split-page)
+; Execution error (IOException) at org.apache.pdfbox.cos.COSStream/checkClosed (COSStream.java:83).
+; COSStream has been closed and cannot be read. Perhaps its enclosing PDDocument has been closed?
 clj꞉pdfshield.core꞉> 
 ; nREPL Connection was closed
 ; Jacking in...
@@ -57,84 +44,45 @@ clj꞉pdfshield.core꞉> 
 clj꞉pdfshield.core꞉> 
 ; Jack-in done.
 clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 5 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
+(test-split-page)
+; Execution error (IOException) at org.apache.pdfbox.cos.COSStream/checkClosed (COSStream.java:83).
+; COSStream has been closed and cannot be read. Perhaps its enclosing PDDocument has been closed?
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 5 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
+(test-split-page)
+; Execution error (IOException) at org.apache.pdfbox.cos.COSStream/checkClosed (COSStream.java:83).
+; COSStream has been closed and cannot be read. Perhaps its enclosing PDDocument has been closed?
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 4 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
-; Evaluating file: core.clj
-#'pdfshield.core/-main
+(test-split-page)
+#object[java.io.FileOutputStream 0xf6e744b "java.io.FileOutputStream@f6e744b"]
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 1 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
+(test-split-page)
+#object[java.io.FileOutputStream 0x4d14bcc1 "java.io.FileOutputStream@4d14bcc1"]
+clj꞉pdfshield.core꞉> 
+(test-split-page)
+#object[java.io.FileOutputStream 0x633c2292 "java.io.FileOutputStream@633c2292"]
+clj꞉pdfshield.core꞉> 
+(range 2 5)
+(2 3 4)
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-; Execution error (IllegalArgumentException) at pdfshield.core/set-image (core.clj:41).
-; No matching method drawImage found taking 5 args for class org.apache.pdfbox.pdmodel.PDPageContentStream
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-; Syntax error (IllegalArgumentException) compiling fn* at (C:\Users\knaga\clojure\pdfshield\src\pdfshield\core.clj:34:1).
-; Only long and double primitives are supported
-; Evaluation of file core.clj failed: class clojure.lang.Compiler$CompilerException
-clojure.lang.Compiler/analyzeSeq (Compiler.java:7115)
-clojure.lang.Compiler/analyze (Compiler.java:6789)
-clojure.lang.Compiler/analyzeSeq (Compiler.java:7095)
-clojure.lang.Compiler/analyze (Compiler.java:6789)
-clojure.lang.Compiler/access$300 (Compiler.java:38)
-clojure.lang.Compiler$DefExpr$Parser/parse (Compiler.java:596)
-clojure.lang.Compiler/analyzeSeq (Compiler.java:7107)
-clojure.lang.Compiler/analyze (Compiler.java:6789)
-clojure.lang.Compiler/eval (Compiler.java:7181)
-clojure.lang.Compiler/load (Compiler.java:7636)
-pdfshield.core/eval7932 (form-init9256163095195727559.clj:1)
-clojure.lang.Compiler/eval (Compiler.java:7177)
-clojure.core/eval (core.clj:3214)
-clojure.core/eval (core.clj:3210)
-nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:87)
-clojure.core/apply (core.clj:665)
-clojure.core/with-bindings* (core.clj:1973)
-nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:87)
-clojure.main/repl (main.clj:437)
-clojure.main/repl (main.clj:458)
-clojure.main/repl (main.clj:368)
-nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:84)
-nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:56)
-nrepl.middleware.interruptible-eval/interruptible-eval (interruptible_eval.clj:152)
-nrepl.middleware.session/session-exec (session.clj:218)
-nrepl.middleware.session/session-exec (session.clj:217)
-java.lang.Thread/run (Thread.java:834)
+(test-split-page)
+; Execution error (IllegalArgumentException) at pdfshield.core/split-page$fn (core.clj:59).
+; No matching method addPage found taking 2 args for class org.apache.pdfbox.pdmodel.PDDocument
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-set-image)
-#object[java.io.FileOutputStream 0x3b579992 "java.io.FileOutputStream@3b579992"]
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-set-image)
-#object[java.io.FileOutputStream 0x4e9e55ca "java.io.FileOutputStream@4e9e55ca"]
+(test-split-page)
+#object[java.io.FileOutputStream 0x641e2029 "java.io.FileOutputStream@641e2029"]
 clj꞉pdfshield.core꞉> 
