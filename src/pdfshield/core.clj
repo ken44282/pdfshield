@@ -1,6 +1,9 @@
 (ns pdfshield.core
   (:import [java.io ByteArrayOutputStream File FileInputStream FileOutputStream]
+           [java.util ArrayList]
            [org.apache.fontbox.ttf TrueTypeCollection]
+           [org.apache.pdfbox.io MemoryUsageSetting]
+           [org.apache.pdfbox.multipdf PDFMergerUtility]
            [org.apache.pdfbox.pdmodel.graphics.image PDImageXObject]
            [org.apache.pdfbox.pdmodel PDDocument PDPageContentStream PDPageContentStream$AppendMode]
            [org.apache.pdfbox.pdmodel.font PDType0Font])
@@ -69,6 +72,14 @@
     (doto (FileOutputStream. "resources/test4.pdf")
       (.write byte-arr)
       (.close))))
+
+(defn merge-documents [& contents]
+  (let [bos (ByteArrayOutputStream.)]
+    (doto (PDFMergerUtility.)
+      (.addSources (ArrayList. contents))
+      (.setDestinationStream bos)
+      (.mergeDocuments (MemoryUsageSetting/setupMainMemoryOnly)))
+    bos))
 
 (defn -main
   "I don't do a whole lot ... yet."

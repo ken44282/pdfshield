@@ -86,3 +86,4 @@ clj꞉pdfshield.core꞉> 
 (test-split-page)
 #object[java.io.FileOutputStream 0x641e2029 "java.io.FileOutputStream@641e2029"]
 clj꞉pdfshield.core꞉> 
+; nREPL Connection was closed
