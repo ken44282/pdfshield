@@ -88,6 +88,25 @@
       (.write byte-arr)
       (.close))))
 
+(defn remove-page [contents & page-nums]
+  (let [document (PDDocument/load contents)
+        bos (ByteArrayOutputStream.)]
+    (reduce #(do
+               (.removePage document (- %2 %1))
+               (inc %1))
+            0
+            (sort page-nums))
+    (.save document bos)
+    (.close document)
+    (.toByteArray bos)))
+
+(defn test-remove-page []
+  (let [fis (FileInputStream. "resources/test.pdf")
+        byte-arr (remove-page fis 2 4)]
+    (doto (FileOutputStream. "resources/test6.pdf")
+      (.write byte-arr)
+      (.close))))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
