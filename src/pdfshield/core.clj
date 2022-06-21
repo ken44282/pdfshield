@@ -79,7 +79,14 @@
       (.addSources (ArrayList. contents))
       (.setDestinationStream bos)
       (.mergeDocuments (MemoryUsageSetting/setupMainMemoryOnly)))
-    bos))
+    (.toByteArray bos)))
+
+(defn test-merge-documents []
+  (let [byte-arr (merge-documents (FileInputStream. "resources/aaa.pdf")
+                                  (FileInputStream. "resources/bbb.pdf"))]
+    (doto (FileOutputStream. "resources/test5.pdf")
+      (.write byte-arr)
+      (.close))))
 
 (defn -main
   "I don't do a whole lot ... yet."

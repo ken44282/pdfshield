@@ -18,72 +18,13 @@
 clj꞉pdfshield.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉pdfshield.core꞉> 
-(test-split-page)
-; Execution error (NullPointerException) at pdfshield.core/split-page$fn (core.clj:59).
-; null
+(test-merge-documents)
+; Execution error (IllegalArgumentException) at pdfshield.core/test-merge-documents (core.clj:88).
+; No matching method write found taking 1 args for class java.io.FileOutputStream
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
-(test-split-page)
-; Execution error (IOException) at org.apache.pdfbox.cos.COSStream/checkClosed (COSStream.java:83).
-; COSStream has been closed and cannot be read. Perhaps its enclosing PDDocument has been closed?
+(test-merge-documents)
+#object[java.io.FileOutputStream 0x540cf5aa "java.io.FileOutputStream@540cf5aa"]
 clj꞉pdfshield.core꞉> 
-; nREPL Connection was closed
-; Jacking in...
-; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
-; Hooking up nREPL sessions...
-; Connected session: clj
-; TIPS:
-;   - You can edit the contents here. Use it as a REPL if you like.
-;   - `alt+enter` evaluates the current top level form.
-;   - `ctrl+enter` evaluates the current form.
-;   - `alt+up` and `alt+down` traverse up and down the REPL command history
-;      when the cursor is after the last contents at the prompt
-;   - Clojure lines in stack traces are peekable and clickable.
-clj꞉pdfshield.core꞉> 
-; Jack-in done.
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-; Execution error (IOException) at org.apache.pdfbox.cos.COSStream/checkClosed (COSStream.java:83).
-; COSStream has been closed and cannot be read. Perhaps its enclosing PDDocument has been closed?
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-; Execution error (IOException) at org.apache.pdfbox.cos.COSStream/checkClosed (COSStream.java:83).
-; COSStream has been closed and cannot be read. Perhaps its enclosing PDDocument has been closed?
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-#object[java.io.FileOutputStream 0xf6e744b "java.io.FileOutputStream@f6e744b"]
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-#object[java.io.FileOutputStream 0x4d14bcc1 "java.io.FileOutputStream@4d14bcc1"]
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-#object[java.io.FileOutputStream 0x633c2292 "java.io.FileOutputStream@633c2292"]
-clj꞉pdfshield.core꞉> 
-(range 2 5)
-(2 3 4)
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-; Execution error (IllegalArgumentException) at pdfshield.core/split-page$fn (core.clj:59).
-; No matching method addPage found taking 2 args for class org.apache.pdfbox.pdmodel.PDDocument
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(test-split-page)
-#object[java.io.FileOutputStream 0x641e2029 "java.io.FileOutputStream@641e2029"]
-clj꞉pdfshield.core꞉> 
-; nREPL Connection was closed
