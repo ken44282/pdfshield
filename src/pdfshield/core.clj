@@ -6,6 +6,7 @@
            [org.apache.pdfbox.multipdf PDFMergerUtility]
            [org.apache.pdfbox.pdmodel.graphics.image PDImageXObject]
            [org.apache.pdfbox.pdmodel PDDocument PDPageContentStream PDPageContentStream$AppendMode]
+           [org.apache.pdfbox.pdmodel.encryption AccessPermission StandardProtectionPolicy]
            [org.apache.pdfbox.pdmodel.font PDType0Font])
   (:gen-class))
 
@@ -104,6 +105,23 @@
   (let [fis (FileInputStream. "resources/test.pdf")
         byte-arr (remove-page fis 2 4)]
     (doto (FileOutputStream. "resources/test6.pdf")
+      (.write byte-arr)
+      (.close))))
+
+(defn encrypt-page [contents owner-pass user-pass]
+  (let [document (PDDocument/load contents)
+        spp (StandardProtectionPolicy. owner-pass user-pass (AccessPermission.))
+        bos (ByteArrayOutputStream.)]
+    (.setEncryptionKeyLength spp 256)
+    (.protect document spp)
+    (.save document bos)
+    (.close document)
+    (.toByteArray bos)))
+
+(defn test-encrypt-page []
+  (let [fis (FileInputStream. "resources/test.pdf")
+        byte-arr (encrypt-page fis "pass1" "pass2")]
+    (doto (FileOutputStream. "resources/test7.pdf")
       (.write byte-arr)
       (.close))))
 
