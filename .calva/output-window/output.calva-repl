@@ -5,6 +5,7 @@
 ; Happy coding! ♥️
 
 ; Jacking in...
+; Jacking in...
 ; Starting Jack-in Terminal: cmd.exe /d /c lein update-in :dependencies conj [nrepl,"0.9.0"] -- update-in :plugins conj [cider/cider-nrepl,"0.27.4"] -- update-in [:repl-options,:nrepl-middleware] conj '["cider.nrepl/cider-middleware"]' -- repl :headless
 ; Hooking up nREPL sessions...
 ; Connected session: clj
@@ -18,9 +19,76 @@
 clj꞉pdfshield.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
+; Running all project tests…
+; No tests found. 😱, ns: 0, vars: 0
 clj꞉pdfshield.core꞉> 
-(test-encrypt-page)
-#object[java.io.FileOutputStream 0x51fb6693 "java.io.FileOutputStream@51fb6693"]
-clj꞉pdfshield.core꞉> 
+; Evaluating file: core_test.clj
+#'pdfshield.core-test/a-test
+; Running test: a-test…
+; FAIL in pdfshield.core-test/a-test (core_test.clj:7):
+; FIXME, I fail.
+; expected:
+0
+; actual:
+1
+; 1 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 1
+clj꞉pdfshield.core-test꞉> 
+; Running all project tests…
+; FAIL in pdfshield.core-test/a-test (core_test.clj:7):
+; FIXME, I fail.
+; expected:
+0
+; actual:
+1
+; 1 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 1
+clj꞉pdfshield.core-test꞉> 
+; Running all project tests…
+; FAIL in pdfshield.core-test/a-test (core_test.clj:7):
+; FIXME, I fail.
+; expected:
+0
+; actual:
+1
+; 1 tests finished, problems found. 😭 errors: 0, failures: 1, ns: 1, vars: 1
+clj꞉pdfshield.core-test꞉> 
+; Evaluating file: core_test.clj
+; Syntax error macroexpanding clojure.core/ns at (c:\Users\knaga\clojure\pdfshield\test\pdfshield\core_test.clj:1:1).
+; java.io - failed: #{:refer-clojure} at: [:ns-clauses :refer-clojure :clause] spec: :clojure.core.specs.alpha/ns-refer-clojure
+java.io - failed: #{:require} at: [:ns-clauses :require :clause] spec: :clojure.core.specs.alpha/ns-require
+java.io - failed: #{:import} at: [:ns-clauses :import :clause] spec: :clojure.core.specs.alpha/ns-import
+java.io - failed: #{:use} at: [:ns-clauses :use :clause] spec: :clojure.core.specs.alpha/ns-use
+java.io - failed: #{:refer} at: [:ns-clauses :refer :clause] spec: :clojure.core.specs.alpha/ns-refer
+java.io - failed: #{:load} at: [:ns-clauses :load :clause] spec: :clojure.core.specs.alpha/ns-load
+java.io - failed: #{:gen-class} at: [:ns-clauses :gen-class :clause] spec: :clojure.core.specs.alpha/ns-gen-class
+; Evaluation of file core_test.clj failed: class clojure.lang.Compiler$CompilerException
+clojure.lang.Compiler/checkSpecs (Compiler.java:6972)
+clojure.lang.Compiler/macroexpand1 (Compiler.java:6988)
+clojure.lang.Compiler/macroexpand (Compiler.java:7075)
+clojure.lang.Compiler/eval (Compiler.java:7161)
+clojure.lang.Compiler/load (Compiler.java:7636)
+pdfshield.core-test/eval8045 (form-init9706575093455544776.clj:1)
+clojure.lang.Compiler/eval (Compiler.java:7177)
+clojure.core/eval (core.clj:3214)
+clojure.core/eval (core.clj:3210)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:87)
+clojure.core/apply (core.clj:665)
+clojure.core/with-bindings* (core.clj:1973)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:87)
+clojure.main/repl (main.clj:437)
+clojure.main/repl (main.clj:458)
+clojure.main/repl (main.clj:368)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:84)
+nrepl.middleware.interruptible-eval/evaluate (interruptible_eval.clj:56)
+nrepl.middleware.interruptible-eval/interruptible-eval (interruptible_eval.clj:152)
+nrepl.middleware.session/session-exec (session.clj:218)
+nrepl.middleware.session/session-exec (session.clj:217)
+java.lang.Thread/run (Thread.java:834)
+clj꞉pdfshield.core-test꞉> 
+; Evaluating file: core_test.clj
+#'pdfshield.core-test/test-set-text2
+clj꞉pdfshield.core-test꞉> 
+; Evaluating file: core_test.clj
+#'pdfshield.core-test/test-set-text2
+; Running test: test-set-text2…
+; 1 tests finished, all passing 👍, ns: 1, vars: 1
+clj꞉pdfshield.core-test꞉> 

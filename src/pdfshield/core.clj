@@ -28,13 +28,6 @@
     (.close document)
     (.toByteArray bos)))
 
-(defn test-set-text []
-  (let [fis (FileInputStream. "resources/test.pdf")
-        byte-arr (set-text fis 1 20 100 200 "テストテスト")]
-    (doto (FileOutputStream. "resources/test2.pdf")
-      (.write byte-arr)
-      (.close))))
-
 (defn set-image [contents img-ins page-num x y width height]
   (let [document (PDDocument/load contents)
         page (.getPage document page-num)
