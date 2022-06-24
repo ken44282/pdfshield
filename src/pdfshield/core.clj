@@ -1,5 +1,5 @@
 (ns pdfshield.core
-  (:import [java.io ByteArrayOutputStream File FileInputStream FileOutputStream]
+  (:import [java.io ByteArrayOutputStream File]
            [java.util ArrayList]
            [org.apache.fontbox.ttf TrueTypeCollection]
            [org.apache.pdfbox.io MemoryUsageSetting]
@@ -41,14 +41,6 @@
     (.close document)
     (.toByteArray bos)))
 
-(defn test-set-image []
-  (let [fis (FileInputStream. "resources/test.pdf")
-        img-ins (FileInputStream. "resources/test.png")
-        byte-arr (set-image fis img-ins 1 (float 20) (float 30) (float 100) (float 200))]
-    (doto (FileOutputStream. "resources/test3.pdf")
-      (.write byte-arr)
-      (.close))))
-
 (defn split-page [contents start-page end-page]
   (let [document (PDDocument/load contents)
         new-document (PDDocument.)
@@ -60,13 +52,6 @@
     (.close new-document)
     (.toByteArray bos)))
 
-(defn test-split-page []
-  (let [fis (FileInputStream. "resources/test.pdf")
-        byte-arr (split-page fis 2 4)]
-    (doto (FileOutputStream. "resources/test4.pdf")
-      (.write byte-arr)
-      (.close))))
-
 (defn merge-documents [& contents]
   (let [bos (ByteArrayOutputStream.)]
     (doto (PDFMergerUtility.)
@@ -74,13 +59,6 @@
       (.setDestinationStream bos)
       (.mergeDocuments (MemoryUsageSetting/setupMainMemoryOnly)))
     (.toByteArray bos)))
-
-(defn test-merge-documents []
-  (let [byte-arr (merge-documents (FileInputStream. "resources/aaa.pdf")
-                                  (FileInputStream. "resources/bbb.pdf"))]
-    (doto (FileOutputStream. "resources/test5.pdf")
-      (.write byte-arr)
-      (.close))))
 
 (defn remove-page [contents & page-nums]
   (let [document (PDDocument/load contents)
@@ -94,13 +72,6 @@
     (.close document)
     (.toByteArray bos)))
 
-(defn test-remove-page []
-  (let [fis (FileInputStream. "resources/test.pdf")
-        byte-arr (remove-page fis 2 4)]
-    (doto (FileOutputStream. "resources/test6.pdf")
-      (.write byte-arr)
-      (.close))))
-
 (defn encrypt-page [contents owner-pass user-pass]
   (let [document (PDDocument/load contents)
         spp (StandardProtectionPolicy. owner-pass user-pass (AccessPermission.))
@@ -110,13 +81,6 @@
     (.save document bos)
     (.close document)
     (.toByteArray bos)))
-
-(defn test-encrypt-page []
-  (let [fis (FileInputStream. "resources/test.pdf")
-        byte-arr (encrypt-page fis "pass1" "pass2")]
-    (doto (FileOutputStream. "resources/test7.pdf")
-      (.write byte-arr)
-      (.close))))
 
 (defn -main
   "I don't do a whole lot ... yet."
