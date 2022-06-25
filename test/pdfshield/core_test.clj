@@ -64,7 +64,7 @@
   (testing "test encrypt-page"
     (let [fis (FileInputStream. "resources/test.pdf")
           byte-arr (encrypt-page fis "pass1" "pass2")
-          fout (io/as-file "resources/result-remove-page.pdf")]
+          fout (io/as-file "resources/result-encrypt-page.pdf")]
       (when (.exists fout) (.delete fout))
       (doto (FileOutputStream. fout)
         (.write byte-arr)
