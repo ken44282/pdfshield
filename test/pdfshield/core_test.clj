@@ -18,8 +18,8 @@
 (deftest test-set-image
   (testing "test set-image"
     (let [fis (FileInputStream. "resources/test.pdf")
-          img-ins (FileInputStream. "resources/test.png")
-          byte-arr (set-image fis img-ins 1 (float 20) (float 30) (float 100) (float 200))
+          imgfis (FileInputStream. "resources/test.png")
+          byte-arr (set-image fis imgfis 1 (float 20) (float 30) (float 100) (float 200))
           fout (io/as-file "resources/result-set-image.pdf")]
       (when (.exists fout) (.delete fout))
       (doto (FileOutputStream. fout)

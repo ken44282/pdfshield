@@ -29,11 +29,11 @@
     (.close document)
     (.toByteArray bos)))
 
-(defn set-image [contents img-ins page-num x y width height]
+(defn set-image [contents img-contents page-num x y width height]
   (let [document (PDDocument/load contents)
         page (.getPage document page-num)
-        img-byte (.readAllBytes img-ins)
-        img (PDImageXObject/createFromByteArray document img-byte "img")
+        imgbytes (.readAllBytes img-contents)
+        img (PDImageXObject/createFromByteArray document imgbytes "img")
         bos (ByteArrayOutputStream.)]
     (doto (PDPageContentStream. document page PDPageContentStream$AppendMode/APPEND true true)
       (.drawImage img x y width height)
@@ -99,4 +99,19 @@
                  (doto (FileOutputStream. fout)
                    (.write byte-arr)
                    (.close)))
+    "set-image" (let [input-filename (second args)
+                      img-filename (nth args 2)
+                      page-num (Integer/parseInt (nth args 3))
+                      x (Float/parseFloat (nth args 4))
+                      y (Float/parseFloat (nth args 5))
+                      width (Float/parseFloat (nth args 6))
+                      height (Float/parseFloat (nth args 7))
+                      output-filename (nth args 8)
+                      fis (FileInputStream. input-filename)
+                      imgfis (FileInputStream. img-filename)
+                      byte-arr (set-image fis imgfis page-num x y width height)
+                      fout (io/as-file output-filename)]
+                  (doto (FileOutputStream. fout)
+                    (.write byte-arr)
+                    (.close)))
     (println "default")))

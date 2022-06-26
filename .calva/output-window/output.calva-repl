@@ -91,3 +91,18 @@ clj꞉pdfshield.core꞉> 
 ; Evaluating file: core.clj
 #'pdfshield.core/-main
 clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core_test.clj
+#'pdfshield.core-test/test-encrypt-page
+clj꞉pdfshield.core-test꞉> 
+; Evaluating file: core_test.clj
+#'pdfshield.core-test/test-encrypt-page
+clj꞉pdfshield.core-test꞉> 
+; Running all project tests…
+; 6 tests finished, all passing 👍, ns: 1, vars: 6
+clj꞉pdfshield.core-test꞉> 
+(-main "set-image" "resources/test.pdf" "resources/test.png" "1" "20" "30" "100" "200" "C:/Users/knaga/aaaa.pdf")
+#object[java.io.FileOutputStream 0x7584d151 "java.io.FileOutputStream@7584d151"]
+clj꞉pdfshield.core-test꞉> 
