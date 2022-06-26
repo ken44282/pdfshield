@@ -1,5 +1,6 @@
 (ns pdfshield.core
-  (:import [java.io ByteArrayOutputStream File]
+  (:require [clojure.java.io :as io])
+  (:import [java.io ByteArrayOutputStream File FileInputStream FileOutputStream]
            [java.util ArrayList]
            [org.apache.fontbox.ttf TrueTypeCollection]
            [org.apache.pdfbox.io MemoryUsageSetting]
@@ -10,7 +11,7 @@
            [org.apache.pdfbox.pdmodel.font PDType0Font])
   (:gen-class))
 
-(defn set-text [contents page-num size x y text]
+(defn set-text [contents page-num font-size x y text]
   (let [document (PDDocument/load contents)
         page (.getPage document page-num)
         ttc (TrueTypeCollection. (File. "resources/msgothic.ttc"))
@@ -19,7 +20,7 @@
         bos (ByteArrayOutputStream.)]
     (doto (PDPageContentStream. document page PDPageContentStream$AppendMode/APPEND true true)
       (.beginText)
-      (.setFont font size)
+      (.setFont font font-size)
       (.newLineAtOffset x y)
       (.showText text)
       (.endText)
@@ -83,6 +84,19 @@
     (.toByteArray bos)))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (case (first args)
+    "set-text" (let [input-filename (second args)
+                     page-num (Integer/parseInt (nth args 2))
+                     font-size (Float/parseFloat (nth args 3))
+                     x (Float/parseFloat (nth args 4))
+                     y (Float/parseFloat (nth args 5))
+                     text (nth args 6)
+                     output-filename (nth args 7)
+                     fis (FileInputStream. input-filename)
+                     byte-arr (set-text fis page-num font-size x y text)
+                     fout (io/as-file output-filename)]
+                 (doto (FileOutputStream. fout)
+                   (.write byte-arr)
+                   (.close)))
+    (println "default")))

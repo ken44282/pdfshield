@@ -18,19 +18,76 @@
 clj꞉pdfshield.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉pdfshield.core꞉> 
-; Evaluating file: core_test.clj
-#'pdfshield.core-test/test-encrypt-page
-; Running test: test-set-text…
-; 1 tests finished, all passing 👍, ns: 1, vars: 1
-clj꞉pdfshield.core-test꞉> 
-; Running all project tests…
-; 6 tests finished, all passing 👍, ns: 1, vars: 6
-clj꞉pdfshield.core-test꞉> 
-; Running all project tests…
-; 6 tests finished, all passing 👍, ns: 1, vars: 6
-clj꞉pdfshield.core-test꞉> 
-; Evaluating file: core_test.clj
-#'pdfshield.core-test/test-encrypt-page
-; Running test: test-encrypt-page…
-; 1 tests finished, all passing 👍, ns: 1, vars: 1
-clj꞉pdfshield.core-test꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-tex")
+default
+nil
+clj꞉pdfshield.core꞉> 
+(-main "set-text resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
+default
+nil
+clj꞉pdfshield.core꞉> 
+-main
+#function[pdfshield.core/-main]
+clj꞉pdfshield.core꞉> 
+(-main "set-text resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
+default
+nil
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-text resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
+set-text resources/test.pdf
+nil
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
+; Execution error (FileNotFoundException) at java.io.FileOutputStream/open0 (FileOutputStream.java:-2).
+; c:\aaaa.pdf (アクセスが拒否されました。)
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" 1 20 100 200 "abcd" "C:/Users/knaga/aaaa.pdf")
+#object[java.io.FileOutputStream 0x16667333 "java.io.FileOutputStream@16667333"]
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
+; Execution error (IllegalArgumentException) at pdfshield.core/set-text (core.clj:16).
+; Unexpected param type, expected: int, given: java.lang.String
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
+; Execution error (ClassCastException) at pdfshield.core/-main (core.clj:90).
+; class java.lang.String cannot be cast to class java.lang.Character (java.lang.String and java.lang.Character are in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
+; Execution error (ClassCastException) at pdfshield.core/set-text (core.clj:22).
+; class java.lang.String cannot be cast to class java.lang.Number (java.lang.String and java.lang.Number are in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
+; Execution error (ClassCastException) at pdfshield.core/set-text (core.clj:22).
+; class java.lang.String cannot be cast to class java.lang.Number (java.lang.String and java.lang.Number are in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
+; Execution error (ClassCastException) at pdfshield.core/set-text (core.clj:23).
+; class java.lang.String cannot be cast to class java.lang.Number (java.lang.String and java.lang.Number are in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
+#object[java.io.FileOutputStream 0x5476c4dd "java.io.FileOutputStream@5476c4dd"]
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
