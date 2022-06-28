@@ -61,7 +61,7 @@
       (.mergeDocuments (MemoryUsageSetting/setupMainMemoryOnly)))
     (.toByteArray bos)))
 
-(defn remove-page [contents & page-nums]
+(defn remove-pages [contents & page-nums]
   (let [document (PDDocument/load contents)
         bos (ByteArrayOutputStream.)]
     (reduce #(do
@@ -130,4 +130,12 @@
                         (doto (FileOutputStream. fout)
                           (.write byte-arr)
                           (.close)))
+    "remove-pages" (let [input-filename (second args)
+                        output-filename (last args)
+                        fis (FileInputStream. input-filename)
+                        byte-arr (apply (partial remove-pages fis) (map #(Integer/parseInt %) (rest (rest (drop-last args)))))
+                        fout (io/as-file output-filename)]
+                    (doto (FileOutputStream. fout)
+                      (.write byte-arr)
+                      (.close)))
     (println "default")))

@@ -49,10 +49,10 @@
         (.close))
       (is (.exists fout)))))
 
-(deftest test-remove-page
-  (testing "test remove-page"
+(deftest test-remove-pages
+  (testing "test remove-pages"
     (let [fis (FileInputStream. "resources/test.pdf")
-          byte-arr (remove-page fis 2 4)
+          byte-arr (remove-pages fis 2 4)
           fout (io/as-file "resources/result-remove-page.pdf")]
       (when (.exists fout) (.delete fout))
       (doto (FileOutputStream. fout)

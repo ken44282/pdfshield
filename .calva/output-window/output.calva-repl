@@ -94,3 +94,19 @@ clj꞉pdfshield.core꞉> 
 ; Execution error (ClassCastException) at org.apache.pdfbox.multipdf.PDFMergerUtility/legacyMergeDocuments (PDFMergerUtility.java:455).
 ; class clojure.lang.PersistentVector cannot be cast to class java.io.InputStream (clojure.lang.PersistentVector is in unnamed module of loader 'app'; java.io.InputStream is in module java.base of loader 'bootstrap')
 clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "remove-page" "resources/test.pdf" "2" "4" "resources/test2.pdf")
+; Execution error (NumberFormatException) at java.lang.NumberFormatException/forInputString (NumberFormatException.java:65).
+; For input string: "resources/test.pdf"
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "remove-page" "resources/test.pdf" "2" "4" "resources/test2.pdf")
+#object[java.io.FileOutputStream 0x29f3acee "java.io.FileOutputStream@29f3acee"]
+clj꞉pdfshield.core꞉> 
+; Running all project tests…
+; 6 tests finished, all passing 👍, ns: 1, vars: 6
+clj꞉pdfshield.core꞉> 
