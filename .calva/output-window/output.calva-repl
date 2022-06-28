@@ -18,91 +18,79 @@
 clj꞉pdfshield.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
+(-main "extract-page" "resources/test.pdf" 2 4 "resources/abcd.pdf")
+; Execution error (ClassCastException) at pdfshield.core/-main (core.clj:118).
+; class java.lang.Long cannot be cast to class java.lang.String (java.lang.Long and java.lang.String are in module java.base of loader 'bootstrap')
 clj꞉pdfshield.core꞉> 
-(-main "set-tex")
-default
-nil
-clj꞉pdfshield.core꞉> 
-(-main "set-text resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
-default
-nil
-clj꞉pdfshield.core꞉> 
--main
-#function[pdfshield.core/-main]
-clj꞉pdfshield.core꞉> 
-(-main "set-text resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
-default
-nil
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(-main "set-text resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
-set-text resources/test.pdf
-nil
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" 1 20 100 200 "abcd" "c:/aaaa.pdf")
-; Execution error (FileNotFoundException) at java.io.FileOutputStream/open0 (FileOutputStream.java:-2).
-; c:\aaaa.pdf (アクセスが拒否されました。)
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" 1 20 100 200 "abcd" "C:/Users/knaga/aaaa.pdf")
-#object[java.io.FileOutputStream 0x16667333 "java.io.FileOutputStream@16667333"]
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
-; Execution error (IllegalArgumentException) at pdfshield.core/set-text (core.clj:16).
-; Unexpected param type, expected: int, given: java.lang.String
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
-; Execution error (ClassCastException) at pdfshield.core/-main (core.clj:90).
-; class java.lang.String cannot be cast to class java.lang.Character (java.lang.String and java.lang.Character are in module java.base of loader 'bootstrap')
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
-; Execution error (ClassCastException) at pdfshield.core/set-text (core.clj:22).
-; class java.lang.String cannot be cast to class java.lang.Number (java.lang.String and java.lang.Number are in module java.base of loader 'bootstrap')
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
-; Execution error (ClassCastException) at pdfshield.core/set-text (core.clj:22).
-; class java.lang.String cannot be cast to class java.lang.Number (java.lang.String and java.lang.Number are in module java.base of loader 'bootstrap')
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
-; Execution error (ClassCastException) at pdfshield.core/set-text (core.clj:23).
-; class java.lang.String cannot be cast to class java.lang.Number (java.lang.String and java.lang.Number are in module java.base of loader 'bootstrap')
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-(-main "set-text" "resources/test.pdf" "1" "20" "100" "200" "abcd" "C:/Users/knaga/aaaa.pdf")
-#object[java.io.FileOutputStream 0x5476c4dd "java.io.FileOutputStream@5476c4dd"]
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
-clj꞉pdfshield.core꞉> 
-; Evaluating file: core.clj
-#'pdfshield.core/-main
+(-main "extract-page" "resources/test.pdf" "2" "4" "resources/abcd.pdf")
+; Execution error (ClassCastException) at pdfshield.core/-main (core.clj:119).
+; class java.lang.Integer cannot be cast to class clojure.lang.IFn (java.lang.Integer is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
 clj꞉pdfshield.core꞉> 
 ; Evaluating file: core_test.clj
 #'pdfshield.core-test/test-encrypt-page
-clj꞉pdfshield.core-test꞉> 
-; Evaluating file: core_test.clj
-#'pdfshield.core-test/test-encrypt-page
+; Running test: test-encrypt-page…
+; 1 tests finished, all passing 👍, ns: 1, vars: 1
 clj꞉pdfshield.core-test꞉> 
 ; Running all project tests…
 ; 6 tests finished, all passing 👍, ns: 1, vars: 6
 clj꞉pdfshield.core-test꞉> 
-(-main "set-image" "resources/test.pdf" "resources/test.png" "1" "20" "30" "100" "200" "C:/Users/knaga/aaaa.pdf")
-#object[java.io.FileOutputStream 0x7584d151 "java.io.FileOutputStream@7584d151"]
-clj꞉pdfshield.core-test꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "extract-page" "resources/test.pdf" "2" "4" "resources/abcd.pdf")
+; Execution error (ClassCastException) at pdfshield.core/-main (core.clj:119).
+; class java.lang.Integer cannot be cast to class clojure.lang.IFn (java.lang.Integer is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "extract-page" "resources/test.pdf" "2" "4" "resources/abcd.pdf")
+#object[java.io.FileOutputStream 0x2f601e59 "java.io.FileOutputStream@2f601e59"]
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "merge-documents" "resources/aaa.pdf" "resources/bbb.pdf" "resources/ccc.pdf")
+; Execution error (ClassCastException) at org.apache.pdfbox.multipdf.PDFMergerUtility/legacyMergeDocuments (PDFMergerUtility.java:455).
+; class clojure.lang.LazySeq cannot be cast to class java.io.InputStream (clojure.lang.LazySeq is in unnamed module of loader 'app'; java.io.InputStream is in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "merge-documents" "resources/aaa.pdf" "resources/bbb.pdf" "resources/ccc.pdf")
+; Execution error (ClassCastException) at org.apache.pdfbox.multipdf.PDFMergerUtility/legacyMergeDocuments (PDFMergerUtility.java:455).
+; class clojure.lang.LazySeq cannot be cast to class java.io.InputStream (clojure.lang.LazySeq is in unnamed module of loader 'app'; java.io.InputStream is in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "merge-documents" "resources/aaa.pdf" "resources/bbb.pdf" "resources/ccc.pdf")
+; Execution error (ClassCastException) at org.apache.pdfbox.multipdf.PDFMergerUtility/legacyMergeDocuments (PDFMergerUtility.java:455).
+; class clojure.lang.PersistentVector cannot be cast to class java.io.InputStream (clojure.lang.PersistentVector is in unnamed module of loader 'app'; java.io.InputStream is in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+(vec (seq [1 2]))
+[1 2]
+clj꞉pdfshield.core꞉> 
+(vec (lazy-seq [1 2]))
+[1 2]
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "merge-documents" "resources/aaa.pdf" "resources/bbb.pdf" "resources/ccc.pdf")
+; Execution error (ClassCastException) at org.apache.pdfbox.multipdf.PDFMergerUtility/legacyMergeDocuments (PDFMergerUtility.java:455).
+; class java.lang.String cannot be cast to class java.io.InputStream (java.lang.String and java.io.InputStream are in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "merge-documents" "resources/aaa.pdf" "resources/bbb.pdf" "resources/ccc.pdf")
+#object[java.io.FileOutputStream 0x136a211e "java.io.FileOutputStream@136a211e"]
+clj꞉pdfshield.core꞉> 
+; Evaluating file: core.clj
+#'pdfshield.core/-main
+clj꞉pdfshield.core꞉> 
+(-main "merge-documents" "resources/aaa.pdf" "resources/bbb.pdf" "resources/ccc.pdf")
+; Execution error (ClassCastException) at org.apache.pdfbox.multipdf.PDFMergerUtility/legacyMergeDocuments (PDFMergerUtility.java:455).
+; class clojure.lang.PersistentVector cannot be cast to class java.io.InputStream (clojure.lang.PersistentVector is in unnamed module of loader 'app'; java.io.InputStream is in module java.base of loader 'bootstrap')
+clj꞉pdfshield.core꞉> 

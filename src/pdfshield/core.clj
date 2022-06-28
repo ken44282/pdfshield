@@ -42,7 +42,7 @@
     (.close document)
     (.toByteArray bos)))
 
-(defn split-page [contents start-page end-page]
+(defn extract-pages [contents start-page end-page]
   (let [document (PDDocument/load contents)
         new-document (PDDocument.)
         bos (ByteArrayOutputStream.)]
@@ -114,4 +114,20 @@
                   (doto (FileOutputStream. fout)
                     (.write byte-arr)
                     (.close)))
+    "extract-pages" (let [input-filename (second args)
+                         start-page (Integer/parseInt (nth args 2))
+                         end-page (Integer/parseInt (nth args 3))
+                         output-filename (nth args 4)
+                         fis (FileInputStream. input-filename)
+                         byte-arr (extract-pages fis start-page end-page)
+                         fout (io/as-file output-filename)]
+                     (doto (FileOutputStream. fout)
+                       (.write byte-arr)
+                       (.close)))
+    "merge-documents" (let [output-filename (last args)
+                            byte-arr (apply merge-documents (map #(FileInputStream. %) (rest (drop-last args))))
+                            fout (io/as-file output-filename)]
+                        (doto (FileOutputStream. fout)
+                          (.write byte-arr)
+                          (.close)))
     (println "default")))

@@ -27,11 +27,11 @@
         (.close))
       (is (.exists fout)))))
 
-(deftest test-split-page
-  (testing "test split-page"
+(deftest test-extract-pages
+  (testing "test extract-page"
     (let [fis (FileInputStream. "resources/test.pdf")
-          byte-arr (split-page fis 2 4)
-          fout (io/as-file "resources/result-split-page.pdf")]
+          byte-arr (extract-pages fis 2 4)
+          fout (io/as-file "resources/result-extract-page.pdf")]
       (when (.exists fout) (.delete fout))
       (doto (FileOutputStream. fout)
         (.write byte-arr)
