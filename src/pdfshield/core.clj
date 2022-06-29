@@ -73,7 +73,7 @@
     (.close document)
     (.toByteArray bos)))
 
-(defn encrypt-page [contents owner-pass user-pass]
+(defn encrypt-document [contents owner-pass user-pass]
   (let [document (PDDocument/load contents)
         spp (StandardProtectionPolicy. owner-pass user-pass (AccessPermission.))
         bos (ByteArrayOutputStream.)]
@@ -138,4 +138,14 @@
                     (doto (FileOutputStream. fout)
                       (.write byte-arr)
                       (.close)))
+    "encrypt-document" (let [input-filename (second args)
+                             owner-pass (nth args 2)
+                             user-pass (nth args 3)
+                             output-filename (last args)
+                             fis (FileInputStream. input-filename)
+                             byte-arr (encrypt-document fis owner-pass user-pass)
+                             fout (io/as-file output-filename)]
+                         (doto (FileOutputStream. fout)
+                           (.write byte-arr)
+                           (.close)))
     (println "default")))
